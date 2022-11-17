@@ -2,11 +2,12 @@ package com.ssafy.running.model.dto;
 
 public class Route {
 	private int routeId; // 맵 아이디
+	private String routeTitle; // 경로 제목(사용자 입력)
 	private String register; // 경로 등록자
-	private String departLat; // 출발지 위도
 	private String departLng; // 출발지 경도
-	private String arriveLat; // 출발지 위도
+	private String departLat; // 출발지 위도
 	private String arriveLng; // 출발지 경도
+	private String arriveLat; // 출발지 위도
 	private String distance; // 소요 거리
 	private String time; // 소요 시간
 	private int likeCnt; // 좋아요 수
@@ -15,15 +16,16 @@ public class Route {
 	public Route() {
 	}
 
-	public Route(int routeId, String register, String departLat, String departLng, String arriveLat, String arriveLng,
-			String distance, String time, int likeCnt, String regDate) {
+	public Route(int routeId, String routeTitle, String register, String departLng, String departLat, String arriveLng,
+			String arriveLat, String distance, String time, int likeCnt, String regDate) {
 		super();
 		this.routeId = routeId;
+		this.routeTitle = routeTitle;
 		this.register = register;
-		this.departLat = departLat;
 		this.departLng = departLng;
-		this.arriveLat = arriveLat;
+		this.departLat = departLat;
 		this.arriveLng = arriveLng;
+		this.arriveLat = arriveLat;
 		this.distance = distance;
 		this.time = time;
 		this.likeCnt = likeCnt;
@@ -36,6 +38,14 @@ public class Route {
 
 	public void setRouteId(int routeId) {
 		this.routeId = routeId;
+	}
+
+	public String getRouteTitle() {
+		return routeTitle;
+	}
+
+	public void setRouteTitle(String routeTitle) {
+		this.routeTitle = routeTitle;
 	}
 
 	public String getRegister() {

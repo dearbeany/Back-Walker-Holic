@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.ssafy.running.model.dao.RouteDao">
 	<resultMap type="Route" id="routeMap">
 		<result column="routeid" property="routeId" />
+		<result column="route_title" property="routeTitle" />
 		<result column="register" property="register" />
 		<result column="depart_lat" property="departLat" />
 		<result column="depart_lng" property="departLng" />
@@ -21,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT 
 		INTO route 
 		VALUES (
-		0, #{register}, #{departLat}, #{departLng}, #{arriveLat}, 
+		0, #{routeTitle}, #{register}, #{departLat}, #{departLng}, #{arriveLat}, 
 		#{arriveLng}, #{distance}, #{time}, #{likeCnt}, now())
 	</insert>
 	
@@ -41,8 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 하나의 경로를 조회 -->
 	<select id="selectRouteOne" parameterType="int" resultMap="routeMap">
-		SELECT routeid, register, depart_lat, depart_lng, arrive_lat, arrive_lng,
-		distance, time, like_cnt, date_format(reg_date, '%Y-%m-%d %H:%i:%s') as reg_date
+		SELECT routeid, route_title, register, depart_lat, depart_lng, arrive_lat, arrive_lng,
+		distance, time, like_cnt, date_format(reg_date, '%Y-%m-%d') as reg_date
 		FROM route
 		WHERE routeid = #{routeId}
 	</select>
