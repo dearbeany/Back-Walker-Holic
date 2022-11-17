@@ -41,9 +41,12 @@ public class RouteReviewRestController {
 	// 리뷰 상세보기
 	@GetMapping("/routeReview/{reviewId}")
 	public ResponseEntity<RouteReview> detail(@PathVariable int reviewId) {
+		System.out.println("11111");
 		try {
+			System.out.println("222222");
 			return new ResponseEntity<RouteReview>(routeReviewService.getRouteReviewOne(reviewId), HttpStatus.OK);
 		} catch (Exception e) {
+			System.out.println("33333");
 			throw new RouteReviewNotFoundException(reviewId + "번 리뷰는 없다.");
 		}
 	}
