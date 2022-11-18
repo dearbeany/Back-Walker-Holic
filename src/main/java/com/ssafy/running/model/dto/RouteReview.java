@@ -9,6 +9,10 @@ public class RouteReview {
 	private int reviewLikeCnt; // 리뷰 좋아요 수
 	private String reviewRegDate; // 리뷰 작성일자
 
+	public RouteReview() {
+
+	}
+
 	public RouteReview(int reviewId, int routeId, String reviewWriter, String reviewContent, String reviewComment,
 			int reviewLikeCnt, String reviewRegDate) {
 		super();

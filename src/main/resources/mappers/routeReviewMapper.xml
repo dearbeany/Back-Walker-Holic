@@ -36,7 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<!-- 하나의 리뷰를 조회 -->
-	<select id="selectRouteRouteReviewOne" parameterType="int" resultMap="routeReviewMap">
+	<select id="selectRouteReviewOne" parameterType="int" resultMap="routeReviewMap">
 		SELECT reviewid, routeid, review_writer, review_content, review_comment, review_like_cnt, date_format(review_reg_date, '%Y-%m-%d') as review_reg_date
 		FROM route_review
 		WHERE reviewid = #{reviewId}
