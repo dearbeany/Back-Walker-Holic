@@ -1,9 +1,9 @@
 package com.ssafy.running.model.dto;
 
 public class Route {
-	private int routeId; // 맵 아이디
+	private int routeId; // 맵 아이디 (PK)
 	private String routeTitle; // 경로 제목(사용자 입력)
-	private String register; // 경로 등록자
+	private String register; // 경로 등록자(FK- User userId)
 	private String departLng; // 출발지 경도
 	private String departLat; // 출발지 위도
 	private String arriveLng; // 출발지 경도

@@ -11,6 +11,9 @@ public interface RouteReviewDao {
 	// 리뷰 목록 불러오기
 	List<RouteReview> selectRouteReviewList();
 
+	// 루트에 해당하는 리뷰 목록 불러오기
+	List<RouteReview> selectRouteReviewListById(int routeId);
+
 	// 리뷰 하나 가져오기
 	RouteReview selectRouteReviewOne(int reviewId);
 

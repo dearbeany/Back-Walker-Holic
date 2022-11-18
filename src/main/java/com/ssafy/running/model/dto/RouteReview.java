@@ -1,9 +1,9 @@
 package com.ssafy.running.model.dto;
 
 public class RouteReview {
-	private int reviewId; // 리뷰 아이디
-	private int routeId; // 경로 아이디 (route 테이블의 routeId)
-	private String reviewWriter; // 작성자(user 테이블의 userId)
+	private int reviewId; // 리뷰 아이디 (PK)
+	private int routeId; // 경로 아이디 (FK - Route routeId)
+	private String reviewWriter; // 작성자 (FK - User userId)
 	private String reviewContent; // 리뷰 내용
 	private String reviewComment; // 리뷰에 대한 댓글
 	private int reviewLikeCnt; // 리뷰 좋아요 수

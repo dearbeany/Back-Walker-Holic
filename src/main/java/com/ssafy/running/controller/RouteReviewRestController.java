@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssafy.running.exception.RouteReviewNotFoundException;
 import com.ssafy.running.model.dto.RouteReview;
 import com.ssafy.running.model.service.RouteReviewService;
 
@@ -22,13 +21,25 @@ public class RouteReviewRestController {
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
 
-	@Autowired
 	private RouteReviewService routeReviewService;
+
+	@Autowired
+	public void setRouteReviewService(RouteReviewService routeReviewService) {
+		this.routeReviewService = routeReviewService;
+	}
 
 	// 전체 리뷰 리스트를 가져오기
 	@GetMapping("/routeReview")
-	public ResponseEntity<List<RouteReview>> list() {
+	public ResponseEntity<List<RouteReview>> listAll() {
 		return new ResponseEntity<List<RouteReview>>(routeReviewService.getRouteReviewList(), HttpStatus.OK);
+	}
+
+	// 루트번호에 해당하는 리뷰 리스트를 가져오기
+	@GetMapping("/routeReview/{routeId}")
+	public ResponseEntity<List<RouteReview>> listbyRouteId(@PathVariable int routeId) {
+		System.out.println("찍히나~?");
+		System.out.println(routeId);
+		return new ResponseEntity<List<RouteReview>>(routeReviewService.getRouteReviewListById(routeId), HttpStatus.OK);
 	}
 
 	// 리뷰 등록하기
@@ -38,18 +49,15 @@ public class RouteReviewRestController {
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 	}
 
-	// 리뷰 상세보기
-	@GetMapping("/routeReview/{reviewId}")
-	public ResponseEntity<RouteReview> detail(@PathVariable int reviewId) {
-		System.out.println("11111");
-		try {
-			System.out.println("222222");
-			return new ResponseEntity<RouteReview>(routeReviewService.getRouteReviewOne(reviewId), HttpStatus.OK);
-		} catch (Exception e) {
-			System.out.println("33333");
-			throw new RouteReviewNotFoundException(reviewId + "번 리뷰는 없다.");
-		}
-	}
+//	// 리뷰 상세보기
+//	@GetMapping("/routeReview/{reviewId}")
+//	public ResponseEntity<RouteReview> detail(@PathVariable int reviewId) {
+//		try {
+//			return new ResponseEntity<RouteReview>(routeReviewService.getRouteReviewOne(reviewId), HttpStatus.OK);
+//		} catch (Exception e) {
+//			throw new RouteReviewNotFoundException(reviewId + "번 리뷰는 없다.");
+//		}
+//	}
 
 	// 리뷰 삭제하기
 	@DeleteMapping("/routeReview/{reviewId}")

@@ -10,8 +10,12 @@ import com.ssafy.running.model.dto.RouteReview;
 
 @Service
 public class RouteReviewServiceImpl implements RouteReviewService {
-	@Autowired
 	private RouteReviewDao routeReviewDao;
+
+	@Autowired
+	private void setRouteReviewDao(RouteReviewDao routeReviewDao) {
+		this.routeReviewDao = routeReviewDao;
+	}
 
 	@Override
 	public void writeRouteReview(RouteReview routeReview) {
@@ -21,6 +25,11 @@ public class RouteReviewServiceImpl implements RouteReviewService {
 	@Override
 	public List<RouteReview> getRouteReviewList() {
 		return routeReviewDao.selectRouteReviewList();
+	}
+
+	@Override
+	public List<RouteReview> getRouteReviewListById(int routeId) {
+		return routeReviewDao.selectRouteReviewListById(routeId);
 	}
 
 	@Override

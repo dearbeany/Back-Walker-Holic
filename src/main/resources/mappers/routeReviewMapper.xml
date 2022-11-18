@@ -42,6 +42,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE reviewid = #{reviewId}
 	</select>
 	
+	<!-- 루트번호 해당하는 리뷰를 조회 --> 
+	<select id="selectRouteReviewListById" parameterType="int" resultMap="routeReviewMap">
+		SELECT * FROM route_review
+		WHERE routeid = #{routeId}
+	</select>
+	
 	<!-- 전체 글 조회 -->
 	<select id="selectRouteReviewList" resultMap="routeReviewMap">
 		SELECT * FROM route_review

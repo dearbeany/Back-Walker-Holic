@@ -11,6 +11,9 @@ public interface RouteReviewService {
 	// 경로에 대한 리뷰 목록
 	List<RouteReview> getRouteReviewList();
 
+	// 해당 경로에 대한 리뷰 목록
+	List<RouteReview> getRouteReviewListById(int routeId);
+
 	// 경로에 대한 리뷰 조회
 	RouteReview getRouteReviewOne(int reviewId);
 
