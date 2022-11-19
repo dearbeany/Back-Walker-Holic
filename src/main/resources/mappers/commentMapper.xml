@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.running.model.dao.CommentDao">
+	<resultMap type="Comment" id="commentMap">
+		<result column="commentid" property="commentId" />
+		<result column="boardid" property="boardId" />
+		<result column="userid" property="userId" />
+		<result column="comment_content" property="commentContent" />
+		<result column="comment_reg_date" property="commentRegDate" />
+	</resultMap>
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="insertComment" parameterType="Comment">
+		INSERT 
+		INTO board_comment 
+		VALUES (
+		0, #{boardId}, #{userId}, #{commentContent}, now())
+	</insert>
+	
+	<!-- 댓글 수정, 내용을 수정함 -->
+	<update id="updateComment" parameterType="Comment">
+		UPDATE board_comment
+		SET comment_content = #{commentContent}
+		WHERE commentid = #{commentId} 
+	</update>	
+	
+	<!-- 리뷰를 삭제 -->
+	<delete id="deleteComment" parameterType="int">
+		DELETE 
+		FROM board_comment 
+		WHERE commentid = #{commentId} 
+	</delete>
+	
+	<!-- 하나의 댓글을 조회 -->
+	<select id="selectCommentOne" parameterType="int" resultMap="commentMap">
+		SELECT commentid, boardid, userid, comment_content, date_format(comment_reg_date, '%Y-%m-%d') as comment_reg_date
+		FROM board_comment
+		WHERE commentid = #{commentId} 
+	</select>
+	
+	<!-- 게시글 해당하는 댓글을 조회 --> 
+	<select id="selectCommentListById" parameterType="int" resultMap="commentMap">
+		SELECT * FROM board_comment
+		WHERE boardid = #{boardId}
+	</select>
+	
+</mapper>
