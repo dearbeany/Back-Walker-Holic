@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.running.model.dao.UserMyPageDao">
+	<resultMap type="UserMyPage" id="userMyPageMap">
+		<result column="userid" property="userId" />
+		<result column="daily_check" property="dailyCheck" />
+		<result column="point" property="point" />
+		<result column="reward" property="reward" />
+	</resultMap>
+	
+	<!-- UserMyPage 정보를 조회 -->
+	<select id="selectUserMyPage" parameterType="string" resultType="UserMyPage">
+			SELECT userid,date_format(daily_check, '%Y-%m-%d') as daily_check,point,reward
+			FROM user_mydata WHERE userid=#{userId}			
+	</select>
+
+	<insert id="insertUserMyPageCal" parameterType="UserMyPage">
+		INSERT INTO user_mydata
+		VALUES (
+		#{userId}, now(), #{point}, #{reward})
+	</insert>
+
+</mapper>
