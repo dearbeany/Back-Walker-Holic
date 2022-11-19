@@ -9,6 +9,11 @@
 		<result column="reward" property="reward" />
 	</resultMap>
 	
+	<resultMap type="UserMyPageReward" id="userMyPageRewardMap">
+		<result column="userid" property="userId" />
+		<result column="reward" property="reward" />
+	</resultMap>
+	
 	<!-- UserMyPage 정보를 조회 -->
 	<select id="selectUserMyPage" parameterType="string" resultType="UserMyPage">
 			SELECT userid,date_format(daily_check, '%Y-%m-%d') as daily_check,point,reward
@@ -20,5 +25,17 @@
 		VALUES (
 		#{userId}, now(), #{point}, #{reward})
 	</insert>
+	
+	<select id="selectUserMyPageReward" parameterType="string" resultType="String" >
+			SELECT reward
+			FROM user_mydata_reward WHERE userid=#{userId}			
+	</select>
+	
+	<insert id="insertUserMyPageReward"  parameterType="UserMyPageReward">
+		INSERT INTO user_mydata_reward
+		VALUES (
+		#{userId},#{reward})
+	</insert>
+	
 
 </mapper>

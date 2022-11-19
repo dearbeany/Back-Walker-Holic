@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.running.model.dto.RouteReview;
 import com.ssafy.running.model.dto.UserMyPage;
+import com.ssafy.running.model.dto.UserMyPageReward;
 import com.ssafy.running.model.service.UserMyPageService;
 
 
@@ -35,6 +36,17 @@ public class UserMyPageRestController {
 	@PostMapping("/userPage")
 	public ResponseEntity<String> insertUserMyPageCal(UserMyPage userMyPage) {
 		userMyPageService.insertUserMyPageCal(userMyPage);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/userPage/getreward")
+	public ResponseEntity<List<String>> selectUserMyPageReward(String userId) {
+		return new ResponseEntity<List<String>>(userMyPageService.selectUserMyPageReward(userId), HttpStatus.OK);
+	}
+	
+	@PostMapping("/userPage/getreward")
+	public ResponseEntity<String> insertUserMyPageReward(UserMyPageReward userMyPageReward) {
+		userMyPageService.insertUserMyPageReward(userMyPageReward);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 	}
 

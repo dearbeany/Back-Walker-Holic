@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ssafy.running.model.dao.UserDao;
 import com.ssafy.running.model.dao.UserMyPageDao;
 import com.ssafy.running.model.dto.UserMyPage;
+import com.ssafy.running.model.dto.UserMyPageReward;
 
 @Service
 public class UserMyPageServiceImpl implements UserMyPageService {
@@ -24,9 +25,24 @@ public class UserMyPageServiceImpl implements UserMyPageService {
 		return userMyPageDao.selectUserMyPage(userId);
 	}
 
+	
+
+	@Override
+	public List<String> selectUserMyPageReward(String userId) {
+		return userMyPageDao.selectUserMyPageReward(userId);
+	}
+
+
+
 	@Override
 	public void insertUserMyPageCal(UserMyPage userMyPage) {
-		userMyPageDao.insertUserMyPageCal(userMyPage);
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	public void insertUserMyPageReward(UserMyPageReward userMyPageReward) {
+		userMyPageDao.insertUserMyPageReward(userMyPageReward);
 	}
 
 }
