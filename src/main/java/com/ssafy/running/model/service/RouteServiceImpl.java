@@ -40,4 +40,9 @@ public class RouteServiceImpl implements RouteService {
 		routeDao.updateRoute(route);
 	}
 
+	@Override
+	public List<Route> getRouteListByLikeCnt() {
+		return routeDao.selectRouteListByLikeCnt();
+	}
+
 }

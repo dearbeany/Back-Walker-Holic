@@ -11,8 +11,12 @@ import com.ssafy.running.model.dto.Board;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-	@Autowired
 	private BoardDao boardDao;
+
+	@Autowired
+	public void setBoardDao(BoardDao boardDao) {
+		this.boardDao = boardDao;
+	}
 
 	@Override
 	public void writeBoard(Board board) {

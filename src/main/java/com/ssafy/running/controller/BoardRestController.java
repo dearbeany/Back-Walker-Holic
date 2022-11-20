@@ -25,12 +25,12 @@ public class BoardRestController {
 	private static final String SUCCESS = "success";
 	private static final String FAIL = "fail";
 
+	@Autowired
 	private BoardService boardService;
 
-	@Autowired
-	public void setBoardService(BoardService boardService) {
-		this.boardService = boardService;
-	}
+//	public void setBoardService(BoardService boardService) {
+//		this.boardService = boardService;
+//	}
 
 	// 게시판 가져오기
 	@GetMapping("/board")

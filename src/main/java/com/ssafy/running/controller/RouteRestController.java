@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,6 +31,12 @@ public class RouteRestController {
 	public ResponseEntity<List<Route>> list() {
 		return new ResponseEntity<List<Route>>(routeService.getRouteList(), HttpStatus.OK);
 	}
+
+	// 인기순 경로 리스트 가져오기
+//	@GetMapping("/route/popular")
+//	public ResponseEntity<List<Route>> listOrderByLikeCnt() {
+//		return new ResponseEntity<List<Route>>(routeService.getRouteListByLikeCnt(), HttpStatus.OK);
+//	}
 
 	// 경로 등록하기
 	@PostMapping("/route")
@@ -55,6 +62,13 @@ public class RouteRestController {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
+	}
+
+	// 경로 수정하기
+	@PutMapping("/route")
+	public ResponseEntity<String> modify(int routeId) {
+		routeService.updateLikeCnt(routeId);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
 }

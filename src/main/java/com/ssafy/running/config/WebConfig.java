@@ -17,7 +17,8 @@ public class WebConfig implements WebMvcConfigurer {
 	private JwtInterceptor jwtInterceptor;
 
 	private static final String[] EXCLUDE_PATHS = { "/api/login/**", "/api/board/**", "/api/route/**",
-			"/api/routeReview/**", "/api/comment/**", "/swagger-resources/**", "/swagger-ui/**", "/v2/api-docs" };
+			"/api/routeReview/**", "/api/comment/**", "/api/userPage/**", "/swagger-resources/**", "/swagger-ui/**",
+			"/v2/api-docs" };
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

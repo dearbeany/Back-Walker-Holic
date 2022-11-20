@@ -19,4 +19,7 @@ public interface RouteDao {
 
 	// 경로 좋아요 수 증가
 	int updateRoute(Route route);
+
+	// 경로 인기순 가져오기
+	List<Route> selectRouteListByLikeCnt();
 }

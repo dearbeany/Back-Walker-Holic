@@ -48,8 +48,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE routeid = #{routeId}
 	</select>
 	
-	<!-- 전체 글 조회 -->
+	<!-- 전체 경로 조회 -->
 	<select id="selectRouteList" resultMap="routeMap">
 		SELECT * FROM route
+	</select>
+	
+	<!-- 인기 순 경로 조회 -->
+	<select id=selectRouteListByLikeCnt resultMap="routeMap">
+		SELECT * FROM route
+		ORDER BY like_cnt DESC
+		LIMIT 3;
 	</select>
 </mapper>

@@ -19,4 +19,7 @@ public interface RouteService {
 
 	// 경로 likeCnt 증가
 	void updateLikeCnt(int routeId);
+
+	// 경로 인기순 가져오기
+	List<Route> getRouteListByLikeCnt();
 }
