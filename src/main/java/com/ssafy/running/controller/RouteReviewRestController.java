@@ -37,7 +37,6 @@ public class RouteReviewRestController {
 	// 루트번호에 해당하는 리뷰 리스트를 가져오기
 	@GetMapping("/routeReview/{routeId}")
 	public ResponseEntity<List<RouteReview>> listbyRouteId(@PathVariable int routeId) {
-		System.out.println("찍히나~?");
 		System.out.println(routeId);
 		return new ResponseEntity<List<RouteReview>>(routeReviewService.getRouteReviewListById(routeId), HttpStatus.OK);
 	}

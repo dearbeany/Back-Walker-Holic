@@ -33,10 +33,10 @@ public class RouteRestController {
 	}
 
 	// 인기순 경로 리스트 가져오기
-//	@GetMapping("/route/popular")
-//	public ResponseEntity<List<Route>> listOrderByLikeCnt() {
-//		return new ResponseEntity<List<Route>>(routeService.getRouteListByLikeCnt(), HttpStatus.OK);
-//	}
+	@GetMapping("/route/popular")
+	public ResponseEntity<List<Route>> listOrderByLikeCnt() {
+		return new ResponseEntity<List<Route>>(routeService.getRouteListByLikeCnt(), HttpStatus.OK);
+	}
 
 	// 경로 등록하기
 	@PostMapping("/route")
