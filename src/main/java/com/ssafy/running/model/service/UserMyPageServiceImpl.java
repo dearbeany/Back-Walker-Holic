@@ -36,7 +36,7 @@ public class UserMyPageServiceImpl implements UserMyPageService {
 
 	@Override
 	public void insertUserMyPageCal(UserMyPage userMyPage) {
-		// TODO Auto-generated method stub
+		userMyPageDao.insertUserMyPageCal(userMyPage);
 		
 	}
 	
