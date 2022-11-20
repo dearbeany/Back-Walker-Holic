@@ -9,6 +9,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="userid" property="userId" />
 		<result column="comment_content" property="commentContent" />
 		<result column="comment_reg_date" property="commentRegDate" />
+		<result column="comment_depth" property="commentDepth" />
+		<result column="comment_group" property="commentGroup" />
 	</resultMap>
 	
 	<!-- 댓글 쓰기 -->
@@ -16,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT 
 		INTO board_comment 
 		VALUES (
-		0, #{boardId}, #{userId}, #{commentContent}, now())
+		0, #{boardId}, #{userId}, #{commentContent}, now(), #{commentDepth}, #{commentGroup})
 	</insert>
 	
 	<!-- 댓글 수정, 내용을 수정함 -->
@@ -35,7 +37,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 하나의 댓글을 조회 -->
 	<select id="selectCommentOne" parameterType="int" resultMap="commentMap">
-		SELECT commentid, boardid, userid, comment_content, date_format(comment_reg_date, '%Y-%m-%d') as comment_reg_date
+		SELECT commentid, boardid, userid, comment_content, 
+		date_format(comment_reg_date, '%Y-%m-%d') as comment_reg_date,
+		comment_depth, comment_group
 		FROM board_comment
 		WHERE commentid = #{commentId} 
 	</select>

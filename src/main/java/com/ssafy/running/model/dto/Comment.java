@@ -6,18 +6,23 @@ public class Comment {
 	public String userId; // 사용자 아이디(FK - User userId)
 	public String commentContent; // 내용
 	public String commentRegDate; // 등록일자
+	public int commentDepth; // 댓글의 깊이 (댓글은 0, 대댓글은 1)
+	public int commentGroup; // 모댓글의 commentId를 저장
 
 	public Comment() {
 
 	}
 
-	public Comment(int commentId, int boardId, String userId, String commentContent, String commentRegDate) {
+	public Comment(int commentId, int boardId, String userId, String commentContent, String commentRegDate,
+			int commentDepth, int commentGroup) {
 		super();
 		this.commentId = commentId;
 		this.boardId = boardId;
 		this.userId = userId;
 		this.commentContent = commentContent;
 		this.commentRegDate = commentRegDate;
+		this.commentDepth = commentDepth;
+		this.commentGroup = commentGroup;
 	}
 
 	public int getCommentId() {
@@ -60,10 +65,27 @@ public class Comment {
 		this.commentRegDate = commentRegDate;
 	}
 
+	public int getCommentDepth() {
+		return commentDepth;
+	}
+
+	public void setCommentDepth(int commentDepth) {
+		this.commentDepth = commentDepth;
+	}
+
+	public int getCommentGroup() {
+		return commentGroup;
+	}
+
+	public void setCommentGroup(int commentGroup) {
+		this.commentGroup = commentGroup;
+	}
+
 	@Override
 	public String toString() {
 		return "Comment [commentId=" + commentId + ", boardId=" + boardId + ", userId=" + userId + ", commentContent="
-				+ commentContent + ", commentRegDate=" + commentRegDate + "]";
+				+ commentContent + ", commentRegDate=" + commentRegDate + ", commentDepth=" + commentDepth
+				+ ", commentGroup=" + commentGroup + "]";
 	}
 
 }
