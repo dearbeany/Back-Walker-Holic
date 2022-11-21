@@ -7,6 +7,9 @@
 		<result column="username" property="username" />
 		<result column="password" property="password" />
 		<result column="campus" property="campus" />
+		<result column="Phone" property="phone" />
+		<result column="avatar" property="avatar" />
+		<result column="email" property="email" />
 	</resultMap>
 	
 	<!-- User 정보를 조회 -->
@@ -20,6 +23,6 @@
 	
 	<insert id="createUser" parameterType="User">
 		INSERT INTO user
-		VALUES(#{userId}, #{username}, #{password}, #{campus})
+		VALUES(#{userId}, #{username}, #{password}, #{campus},#{phone},#{avatar},#{email})
 	</insert>
 </mapper>

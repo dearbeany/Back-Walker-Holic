@@ -32,7 +32,7 @@
 	</select>
 	
 	<insert id="insertUserMyPageReward"  parameterType="UserMyPageReward">
-		INSERT INTO user_mydata_reward
+		INSERT IGNORE INTO user_mydata_reward
 		VALUES (
 		#{userId},#{reward})
 	</insert>
