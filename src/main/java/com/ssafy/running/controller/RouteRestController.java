@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.running.exception.RouteNotFoundException;
@@ -36,6 +38,15 @@ public class RouteRestController {
 	@GetMapping("/route/popular")
 	public ResponseEntity<List<Route>> listOrderByLikeCnt() {
 		return new ResponseEntity<List<Route>>(routeService.getRouteListByLikeCnt(), HttpStatus.OK);
+	}
+
+	// 경로 작성자 해당하는 아바타 가져오기
+//	@GetMapping("/route/avatar/{register}")
+	@RequestMapping(value = "/route/avatar/{register}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<String> getAvatarByRegister(@PathVariable String register) {
+		System.out.println(routeService.getAvatarByRegister(register));
+		return new ResponseEntity<String>(routeService.getAvatarByRegister(register), HttpStatus.OK);
+
 	}
 
 	// 경로 등록하기

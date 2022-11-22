@@ -22,4 +22,7 @@ public interface RouteDao {
 
 	// 경로 인기순 가져오기
 	List<Route> selectRouteListByLikeCnt();
+
+	// 경로 작성자에 해당하는 유저의 아바타 가져오기
+	String selectAvatarByRegister(String register);
 }

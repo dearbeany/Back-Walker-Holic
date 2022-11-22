@@ -22,4 +22,6 @@ public interface RouteService {
 
 	// 경로 인기순 가져오기
 	List<Route> getRouteListByLikeCnt();
+
+	String getAvatarByRegister(String register);
 }

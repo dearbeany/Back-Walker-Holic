@@ -41,6 +41,23 @@ public class RouteReviewRestController {
 		return new ResponseEntity<List<RouteReview>>(routeReviewService.getRouteReviewListById(routeId), HttpStatus.OK);
 	}
 
+//	// 리뷰 글쓴이 해당하는 아바타 가져오기
+//	@GetMapping("/routeReview/avatar/{reviewWriter}")
+////	@RequestMapping(value = "/route/avatar/{register}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public ResponseEntity<HashMap<String, String>> getAvatarByRegister(@PathVariable String reviewWriter) {
+//		HashMap<String, String> map = new HashMap<>();
+//		map.put("reviewWriter", reviewWriter);
+//		map.put("avatar", routeReviewService.getAvatarByWriter(reviewWriter));
+//
+//		List<User> userList = userService.selectAll();
+//		for (int i = 0; i < userList.size(); i++) {
+//			String userId = userList.get(i).getUserId();
+//			String avatar = userList.get(i).getAvatar();
+//		}
+//
+//		return new ResponseEntity<HashMap<String, String>>(HttpStatus.OK);
+//	}
+
 	// 리뷰 등록하기
 	@PostMapping("/routeReview")
 	public ResponseEntity<String> write(RouteReview routeReview) {

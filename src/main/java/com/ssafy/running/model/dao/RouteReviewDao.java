@@ -22,4 +22,7 @@ public interface RouteReviewDao {
 
 	// 리뷰 수정
 	int updateRouteReview(RouteReview routeReview);
+
+	// 리뷰 글쓴이에 해당하는 유저 아바타 가져오기
+	String selectAvatarByRegister(String reviewWriter);
 }

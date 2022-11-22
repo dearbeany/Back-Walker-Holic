@@ -8,13 +8,14 @@ public class RouteReview {
 	private String reviewComment; // 리뷰에 대한 댓글
 	private int reviewLikeCnt; // 리뷰 좋아요 수
 	private String reviewRegDate; // 리뷰 작성일자
+	private String reviewWriterAvatar; // 리뷰 작성자의 아바타
 
 	public RouteReview() {
 
 	}
 
 	public RouteReview(int reviewId, int routeId, String reviewWriter, String reviewContent, String reviewComment,
-			int reviewLikeCnt, String reviewRegDate) {
+			int reviewLikeCnt, String reviewRegDate, String reviewWriterAvatar) {
 		super();
 		this.reviewId = reviewId;
 		this.routeId = routeId;
@@ -23,6 +24,15 @@ public class RouteReview {
 		this.reviewComment = reviewComment;
 		this.reviewLikeCnt = reviewLikeCnt;
 		this.reviewRegDate = reviewRegDate;
+		this.reviewWriterAvatar = reviewWriterAvatar;
+	}
+
+	public String getReviewWriterAvatar() {
+		return reviewWriterAvatar;
+	}
+
+	public void setReviewWriterAvatar(String reviewWriterAvatar) {
+		this.reviewWriterAvatar = reviewWriterAvatar;
 	}
 
 	public int getReviewId() {

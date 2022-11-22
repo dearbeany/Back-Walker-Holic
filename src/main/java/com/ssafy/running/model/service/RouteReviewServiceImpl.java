@@ -49,4 +49,9 @@ public class RouteReviewServiceImpl implements RouteReviewService {
 		routeReviewDao.updateRouteReview(routeReview);
 	}
 
+//	@Override
+//	public String getAvatarByWriter(String reviewWriter) {
+//		return routeReviewDao.selectAvatarByRegister(reviewWriter);
+//	}
+
 }

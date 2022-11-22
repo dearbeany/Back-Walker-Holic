@@ -45,4 +45,9 @@ public class RouteServiceImpl implements RouteService {
 		return routeDao.selectRouteListByLikeCnt();
 	}
 
+	@Override
+	public String getAvatarByRegister(String register) {
+		return routeDao.selectAvatarByRegister(register);
+	}
+
 }

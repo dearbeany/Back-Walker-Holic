@@ -48,6 +48,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE routeid = #{routeId}
 	</select>
 	
+	<select id="selectAvatarByRegister" parameterType="string" resultType="string">
+		SELECT avatar
+		FROM user
+		WHERE userid = #{register};
+	</select>
+	
 	<!-- 전체 경로 조회 -->
 	<select id="selectRouteList" resultMap="routeMap">
 		SELECT * FROM route

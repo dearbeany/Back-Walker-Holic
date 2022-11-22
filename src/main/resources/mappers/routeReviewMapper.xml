@@ -11,6 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="review_comment" property="reviewComment" />
 		<result column="review_like_cnt" property="reviewLikeCnt" />
 		<result column="review_reg_date" property="reviewRegDate" />
+		<result column="review_writer_avatar" property="reviewWriterAvatar" />
 	</resultMap>
 	
 	<!-- 리뷰 쓰기 -->
@@ -18,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT 
 		INTO route_review 
 		VALUES (
-		0, #{routeId}, #{reviewWriter}, #{reviewContent}, #{reviewComment}, #{reviewLikeCnt}, now())
+		0, #{routeId}, #{reviewWriter}, #{reviewContent}, #{reviewComment}, #{reviewLikeCnt}, now(), #{reviewWriterAvatar})
 	</insert>
 	
 	<!-- 리뷰 업데이트, 좋아요 수 증가 -->
@@ -37,7 +38,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 하나의 리뷰를 조회 -->
 	<select id="selectRouteReviewOne" parameterType="int" resultMap="routeReviewMap">
-		SELECT reviewid, routeid, review_writer, review_content, review_comment, review_like_cnt, date_format(review_reg_date, '%Y-%m-%d') as review_reg_date
+		SELECT reviewid, routeid, review_writer, review_content, review_comment, review_like_cnt, 
+		date_format(review_reg_date, '%Y-%m-%d') as review_reg_date, review_writer_avatar
 		FROM route_review
 		WHERE reviewid = #{reviewId}
 	</select>
@@ -47,6 +49,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM route_review
 		WHERE routeid = #{routeId}
 	</select>
+	
+	<!-- 글쓴이 따른 아바타 값 가져오기 -->
+<!-- 	<select id="selectAvatarByRegister" parameterType="string" resultType="java.util.HashMap">
+		SELECT avatar
+		FROM user
+		WHERE userid = #{reviewWriter};
+	</select> -->	
 	
 	<!-- 전체 글 조회 -->
 	<select id="selectRouteReviewList" resultMap="routeReviewMap">
