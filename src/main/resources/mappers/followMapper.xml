@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.running.model.dao.FollowDao">
+    <resultMap type="Follow" id="followMap">
+        <result column="follow_no" property="followNo" />
+        <result column="follower_userid" property="followerUserId" />
+        <result column="following_userid" property="followingUserId" />
+    </resultMap>
+
+	<select id="selectFollowAll" resultMap="followMap">
+		SELECT * FROM follow;
+	</select>
+	
+	<insert id="insert" parameterType="Follow">
+		INSERT INTO follow
+        VALUES(0, #{followerUserId}, #{followingUserId});
+	</insert>
+	
+	<delete id="delete" parameterType="Follow">
+		DELETE 
+		FROM follow 
+		WHERE follower_userid = #{followerUserId} 
+		and following_userid = #{followingUserId}
+	</delete>
+	
+</mapper>
