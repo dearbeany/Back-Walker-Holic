@@ -22,10 +22,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		0, #{routeId}, #{reviewWriter}, #{reviewContent}, #{reviewComment}, #{reviewLikeCnt}, now(), #{reviewWriterAvatar})
 	</insert>
 	
-	<!-- 리뷰 업데이트, 좋아요 수 증가 -->
+	<!-- 리뷰 업데이트, 내용 변경 -->
 	<update id="updateRouteReview" parameterType="RouteReview">
 		UPDATE route_review
-		SET review_like_cnt = #{reviewLikeCnt}
+		SET review_content = #{reviewContent}
 		WHERE reviewid = #{reviewId} 
 	</update>	
 	

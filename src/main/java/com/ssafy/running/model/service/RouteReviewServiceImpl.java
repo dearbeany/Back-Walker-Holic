@@ -43,10 +43,11 @@ public class RouteReviewServiceImpl implements RouteReviewService {
 	}
 
 	@Override
-	public void updateRouteReview(int reviewId) {
-		RouteReview routeReview = routeReviewDao.selectRouteReviewOne(reviewId);
-		routeReview.setReviewLikeCnt(routeReview.getReviewLikeCnt() + 1);
-		routeReviewDao.updateRouteReview(routeReview);
+	public void updateRouteReview(RouteReview routeReview) {
+		RouteReview review = routeReviewDao.selectRouteReviewOne(routeReview.getReviewId());
+//		routeReview.setReviewLikeCnt(routeReview.getReviewLikeCnt() + 1);
+		review.setReviewContent(routeReview.getReviewContent());
+		routeReviewDao.updateRouteReview(review);
 	}
 
 //	@Override

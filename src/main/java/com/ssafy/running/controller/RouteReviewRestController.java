@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -74,6 +75,13 @@ public class RouteReviewRestController {
 //			throw new RouteReviewNotFoundException(reviewId + "번 리뷰는 없다.");
 //		}
 //	}
+
+	// 리뷰 수정하기
+	@PutMapping("/routeReview")
+	public ResponseEntity<String> modify(RouteReview routeReview) {
+		routeReviewService.updateRouteReview(routeReview);
+		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
+	}
 
 	// 리뷰 삭제하기
 	@DeleteMapping("/routeReview/{reviewId}")

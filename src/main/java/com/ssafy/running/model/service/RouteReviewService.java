@@ -20,8 +20,8 @@ public interface RouteReviewService {
 	// 경로에 대한 리뷰 삭제
 	boolean removeRouteReview(int reviewId);
 
-	// 경로에 대한 리뷰 수정 (좋아요 수만 증가)
-	void updateRouteReview(int reviewId);
+	// 경로에 대한 리뷰 수정(내용이 변경)
+	void updateRouteReview(RouteReview routeReview);
 
 //	// 리뷰글쓴이에 대한 아바타 가져오기
 //	String getAvatarByWriter(String reviewWriter);
