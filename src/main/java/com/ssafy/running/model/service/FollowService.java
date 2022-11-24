@@ -13,4 +13,8 @@ public interface FollowService {
 
 	// 언팔로우를 한다
 	void unfollowUser(Follow follow);
+
+	String getAvatarByFollowerUserId(String followerUserId);
+
+	String getAvatarByFollowingUserId(String followingUserId);
 }

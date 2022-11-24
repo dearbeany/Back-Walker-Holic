@@ -35,6 +35,7 @@ public class FollowRestController {
 	// 팔로우
 	@PostMapping("/follow")
 	public ResponseEntity<String> follow(Follow follow) {
+		System.out.println(follow);
 		followService.followUser(follow);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 	}

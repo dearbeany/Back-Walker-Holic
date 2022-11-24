@@ -13,4 +13,8 @@ public interface FollowDao {
 
 	// 언팔로우를 한다
 	void delete(Follow follow);
+
+	String selectAvatarByFollwerUserId(String followerUserId);
+
+	String selectAvatarByFollowingUserId(String followingUserId);
 }

@@ -6,6 +6,9 @@
         <result column="follow_no" property="followNo" />
         <result column="follower_userid" property="followerUserId" />
         <result column="following_userid" property="followingUserId" />
+        <result column="follower_avatar" property="followerAvatar" />
+        <result column="following_avatar" property="followingAvatar" />
+        
     </resultMap>
 
 	<select id="selectFollowAll" resultMap="followMap">
@@ -14,7 +17,7 @@
 	
 	<insert id="insert" parameterType="Follow">
 		INSERT INTO follow
-        VALUES(0, #{followerUserId}, #{followingUserId});
+        VALUES(0, #{followerUserId}, #{followingUserId}, #{followerAvatar}, #{followingAvatar});
 	</insert>
 	
 	<delete id="delete" parameterType="Follow">

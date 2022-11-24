@@ -33,4 +33,14 @@ public class FollowServiceImpl implements FollowService {
 		followDao.delete(follow);
 	}
 
+	@Override
+	public String getAvatarByFollowerUserId(String followerUserId) {
+		return followDao.selectAvatarByFollwerUserId(followerUserId);
+	}
+
+	@Override
+	public String getAvatarByFollowingUserId(String followingUserId) {
+		return followDao.selectAvatarByFollowingUserId(followingUserId);
+	}
+
 }
